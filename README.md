@@ -78,7 +78,7 @@ Controls how steep the transition from lit to dark areas should be, essentially 
 
 Allows objects to cast shadows on the mesh. Also needed for proper attenuation when using `OmniLight` nodes in your scene.
 
-*Note*: You might need to set `wrap` to a slightly negative value (e.g. `-0.1`) for this to work properly.
+*Note*: ATTENUATION parameter was changed from Vector to Float in Godot 4. I'm not sure if I ported correctly, please check :). You might need to set `wrap` to a slightly negative value (e.g. `-0.1`) for this to work properly.
 
 * `use_specular`
 

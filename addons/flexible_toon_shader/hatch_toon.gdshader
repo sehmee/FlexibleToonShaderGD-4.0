@@ -2,13 +2,12 @@ shader_type spatial;
 
 //render_mode ambient_light_disabled;
 
-const float PI = 3.1415926536f;
 
 const mat2 ORIENTATION_STRAIGHT = mat2(vec2(1.0f, 0.0f), vec2(0.0f, 1.0f));
 const mat2 ORIENTATION_CROSS = mat2(vec2(0.0f, 1.0f), vec2(1.0, 0.0f));
 
-uniform vec4 albedo : hint_color = vec4(1.0f);
-uniform sampler2D albedo_texture : hint_albedo;
+uniform vec4 albedo : source_color = vec4(1.0f);
+uniform sampler2D albedo_texture : source_color;
 
 uniform int cuts : hint_range(1, 8) = 2;
 uniform float wrap : hint_range(-2.0f, 2.0f) = 0.0f;
@@ -18,11 +17,11 @@ uniform bool use_attenuation = true;
 
 uniform bool use_rim = false;
 uniform float rim_width : hint_range(0.0f, 16.0f) = 8.0f;
-uniform vec4 rim_color : hint_color = vec4(1.0f);
+uniform vec4 rim_color : source_color = vec4(1.0f);
 
 uniform float hatch_scale = 2.0f;
 uniform bool use_triplanar = true;
-uniform sampler2D hatch_texture : hint_albedo;
+uniform sampler2D hatch_texture : source_color;
 
 varying vec3 vertex_pos;
 varying vec3 normal;
@@ -74,7 +73,7 @@ void light() {
 	// Attenuation.
 	float attenuation = 1.0f;
 	if (use_attenuation) {
-		attenuation = ATTENUATION.x;
+		attenuation = ATTENUATION;
 	}
 	
 	// Diffuse lighting.
@@ -94,6 +93,6 @@ void light() {
 	if (use_rim) {
 		float NdotV = dot(NORMAL, VIEW);
 		float rim_light = pow(1.0 - NdotV, rim_width);
-		DIFFUSE_LIGHT += rim_light * rim_color.rgb * rim_color.a * LIGHT_COLOR / PI;
+		SPECULAR_LIGHT += rim_light * rim_color.rgb * rim_color.a * LIGHT_COLOR / PI; //Changed DIFFUSE_LIGHT to SPECULAR_LIGHT while migrating for similar result
 	}
 }

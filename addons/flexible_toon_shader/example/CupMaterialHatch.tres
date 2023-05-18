@@ -1,21 +1,21 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dgkqgl3vfek6v"]
 
-[ext_resource path="res://addons/flexible_toon_shader/hatch_toon.shader" type="Shader" id=1]
-[ext_resource path="res://addons/flexible_toon_shader/example/cup_texture.png" type="Texture" id=2]
-[ext_resource path="res://addons/flexible_toon_shader/hatch.png" type="Texture" id=3]
-
+[ext_resource type="Shader" path="res://addons/flexible_toon_shader/hatch_toon.gdshader" id="1_q44bp"]
+[ext_resource type="Texture2D" uid="uid://c0dpox2fcqs5d" path="res://addons/flexible_toon_shader/example/cup_texture.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://1qnxn1x7e2vc" path="res://addons/flexible_toon_shader/hatch.png" id="3_s6hul"]
 
 [resource]
-shader = ExtResource( 1 )
-shader_param/albedo = Color( 1, 1, 1, 1 )
-shader_param/cuts = 2
-shader_param/wrap = 0.0
-shader_param/steepness = 1.0
-shader_param/use_attenuation = true
-shader_param/use_rim = false
-shader_param/rim_width = 8.0
-shader_param/rim_color = Color( 1, 1, 1, 1 )
-shader_param/hatch_scale = 2.0
-shader_param/use_triplanar = true
-shader_param/albedo_texture = ExtResource( 2 )
-shader_param/hatch_texture = ExtResource( 3 )
+render_priority = 0
+shader = ExtResource("1_q44bp")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/cuts = 2
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = null
+shader_parameter/use_attenuation = true
+shader_parameter/use_rim = true
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/hatch_scale = 2.739
+shader_parameter/use_triplanar = true
+shader_parameter/albedo_texture = ExtResource("2")
+shader_parameter/hatch_texture = ExtResource("3_s6hul")
