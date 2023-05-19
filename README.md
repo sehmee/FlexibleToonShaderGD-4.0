@@ -30,7 +30,7 @@
 
 ### Godot Asset Library
 
-The shader is available in the [Godot Asset Library](https://godotengine.org/asset-library/asset/873) directly from the editor.
+The shader is available in the [Godot Asset Library](https://godotengine.org/asset-library/asset/1900) directly from the editor.
 
 ### Download from GitHub
 
