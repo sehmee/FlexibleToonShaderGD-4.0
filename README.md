@@ -7,9 +7,9 @@
 
 * This code is added to solve this issue:
 ```
-		if(ATTENUATION < 0.01){
-		diffuse_amount *= ATTENUATION;
-		}
+if(ATTENUATION < 0.01){
+diffuse_amount *= ATTENUATION;
+}
 ```
 
 
