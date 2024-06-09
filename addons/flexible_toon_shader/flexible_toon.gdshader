@@ -55,6 +55,12 @@ void light() {
 	float NdotL = dot(NORMAL, LIGHT);
 	float diffuse_amount = NdotL + (attenuation - 1.0) + wrap;
 	//float diffuse_amount = NdotL * attenuation + wrap;
+
+	// Fix for blocky/pixelated issue when using Spotlight/Omnilights
+		if(ATTENUATION < 0.01){
+		diffuse_amount *= ATTENUATION;
+		}
+
 	diffuse_amount *= steepness;
 	float cuts_inv = 1.0f / float(cuts);
 	float diffuse_stepped = clamp(diffuse_amount + mod(1.0f - diffuse_amount, cuts_inv), 0.0f, 1.0f);
