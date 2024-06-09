@@ -1,3 +1,18 @@
+# This fork only solves the pixelated/blocky issue
+* This is what the issue looks like:
+![](images/PixelIssue.png)
+
+* This is when it is solved:
+![](images/NoPixelIssue.png)
+
+* This code is added to solve this issue:
+```
+		if(ATTENUATION < 0.01){
+		diffuse_amount *= ATTENUATION;
+		}
+```
+
+
 # Flexible Toon Shader for the Godot Engine
 
 ## Table of contents
